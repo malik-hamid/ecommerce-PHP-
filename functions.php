@@ -1,8 +1,8 @@
 <?php
 
-// ==========================================================
-//  Copyright Reserved Wael Wael Abo Hamza (Course Ecommerce)
-// ==========================================================
+// ====================
+//  Copyright Reserved 
+// ====================
 
 define("MB", 1048576);
 
@@ -142,4 +142,12 @@ function checkAuthenticate()
     }
 
     // End 
+
+
+    
+}
+
+function printFailure($message = "none")
+{
+    echo json_encode(array("status" => "failure", "message"=>$message));
 }
