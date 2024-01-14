@@ -44,7 +44,7 @@ function insertData($table, $data, $json = true)
     $count = $stmt->rowCount();
     if ($json == true) {
     if ($count > 0) {
-        echo json_encode(array("status" => "success"));
+        echo json_encode(array("status" => "success" ));
     } else {
         echo json_encode(array("status" => "failure"));
     }
@@ -150,4 +150,25 @@ function checkAuthenticate()
 function printFailure($message = "none")
 {
     echo json_encode(array("status" => "failure", "message"=>$message));
+}
+
+
+function printSuccess($message = "none")
+{
+    echo json_encode(array("status" => "success", "message"=>$message));
+}
+
+function result($count){
+    if ($count > 0){
+        printSuccess();
+    }else{
+        printFailure();
+    }
+}
+
+function sendEmail($to , $title , $body){
+$headr = "from: support@malikadam.com" . "\n" . "cc:malikadam188@gmail.com";
+
+mail($to , $title ,$body ,$headr);
+
 }
