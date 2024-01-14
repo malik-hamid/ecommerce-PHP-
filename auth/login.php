@@ -3,11 +3,11 @@
 include "../connect.php";
 
 
-$passwoed = sha1("passwoed");
+$password = sha1("password");
 $email = filterRequest("email");
 
 
 $stmt = $con->prepare("SELECT * FROM users WHERE users_email = ? and users_password = ? ");
-$stmt->execute(array($email,$passwoed));
+$stmt->execute(array($email,$password));
 $count = $stmt->rowCount();
 result($count);
